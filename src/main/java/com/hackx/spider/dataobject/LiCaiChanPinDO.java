@@ -1,4 +1,4 @@
-package spider.dataobject;
+package com.hackx.spider.dataobject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -84,7 +84,7 @@ public class LiCaiChanPinDO implements Serializable {
 
     @Override
     public String toString() {
-        return "org.hack.spider.LianJiaLiCai.LiCaiChanPinDO{" +
+        return "org.hack.com.hackx.spider.dataobject.LianJiaLiCai.LiCaiChanPinDO{" +
                 "title='" + title + '\'' +
                 ", kaiShouShiJian='" + kaiShouShiJian + '\'' +
                 ", yuQiNianHuaShouYiLv='" + yuQiNianHuaShouYiLv + '\'' +

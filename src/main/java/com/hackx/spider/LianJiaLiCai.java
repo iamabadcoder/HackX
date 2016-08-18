@@ -1,6 +1,8 @@
-package spider;
+package com.hackx.spider;
 
-import common.FileUtil;
+import com.hackx.spider.dataobject.GouMaiJiLuDO;
+import com.hackx.spider.dataobject.LiCaiChanPinDO;
+import com.hackx.common.FileUtil;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -11,8 +13,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import spider.dataobject.GouMaiJiLuDO;
-import spider.dataobject.LiCaiChanPinDO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,7 +83,7 @@ public class LianJiaLiCai {
             e.printStackTrace();
         }
         String pageSource = driver.getPageSource();
-        if (null == pageSource || pageSource.contains("³ö´íÀ²")) {
+        if (null == pageSource || pageSource.contains("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")) {
             return liCaiChanPinDO;
         }
         parseHtml(pageSource, liCaiChanPinDO);
@@ -133,7 +133,7 @@ public class LianJiaLiCai {
             Elements upTimeElements = finContentElement.getElementsByClass("up_time");
             if (null != upTimeElements && upTimeElements.size() > 0) {
                 Element upTimeElement = upTimeElements.get(0);
-                liCaiChanPinDO.setKaiShouShiJian(upTimeElement.text().replace("·¢²¼Ê±¼ä£º", ""));
+                liCaiChanPinDO.setKaiShouShiJian(upTimeElement.text().replace("ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£º", ""));
             }
 
             // yuQiNianHuaShouYiLv    xiangMuQiXian    xiangMuGuiMo
@@ -143,11 +143,11 @@ public class LianJiaLiCai {
                 Elements liElements = pb20TagElement.getElementsByTag("li");
                 for (Element liElement : liElements) {
                     String liText = liElement.text();
-                    if (liText.contains("ÊÕÒæ")) {
+                    if (liText.contains("ï¿½ï¿½ï¿½ï¿½")) {
                         liCaiChanPinDO.setYuQiNianHuaShouYiLv(liElement.text());
-                    } else if (liText.contains("ÆÚÏÞ")) {
+                    } else if (liText.contains("ï¿½ï¿½ï¿½ï¿½")) {
                         liCaiChanPinDO.setXiangMuQiXian(liElement.text());
-                    } else if (liText.contains("¹æÄ£")) {
+                    } else if (liText.contains("ï¿½ï¿½Ä£")) {
                         liCaiChanPinDO.setXiangMuGuiMo(liElement.text());
                     }
                 }
@@ -161,10 +161,10 @@ public class LianJiaLiCai {
             List<WebElement> ddTagElements = fullTimeElement.findElements(By.tagName("dd"));
             if (null != ddTagElements && ddTagElements.size() > 0) {
                 for (WebElement ddTagElement : ddTagElements) {
-                    if (ddTagElement.getText().contains("ÀúÊ±")) {
+                    if (ddTagElement.getText().contains("ï¿½ï¿½Ê±")) {
                         liCaiChanPinDO.setXiangMuShouWanLiShi(ddTagElement.getText().trim().replace("\n", ""));
-                    } else if (ddTagElement.getText().contains("Í¶±ê")) {
-                        liCaiChanPinDO.setTouBiaoBiShu(ddTagElement.getText().replace("Í¶±ê±ÊÊý£º", "").replace("±Ê", "").replace("\n", ""));
+                    } else if (ddTagElement.getText().contains("Í¶ï¿½ï¿½")) {
+                        liCaiChanPinDO.setTouBiaoBiShu(ddTagElement.getText().replace("Í¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "").replace("ï¿½ï¿½", "").replace("\n", ""));
                     }
                 }
             }

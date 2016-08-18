@@ -1,4 +1,4 @@
-package spider.dataobject;
+package com.hackx.spider.dataobject;
 
 import java.io.Serializable;
 
@@ -37,7 +37,7 @@ public class GouMaiJiLuDO implements Serializable {
 
     @Override
     public String toString() {
-        return "org.hack.spider.LianJiaLiCai.GouMaiJiLuDO{" +
+        return "org.hack.com.hackx.spider.dataobject.LianJiaLiCai.GouMaiJiLuDO{" +
                 "touZiYongHu='" + touZiYongHu + '\'' +
                 ", touZiZiJin='" + touZiZiJin + '\'' +
                 ", touziShiJian='" + touziShiJian + '\'' +

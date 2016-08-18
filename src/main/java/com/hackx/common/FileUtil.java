@@ -1,4 +1,4 @@
-package common;
+package com.hackx.common;
 
 import java.io.*;
 
