@@ -34,7 +34,7 @@ public class LianJiaLiCai {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        for (int itemIndex = 8000; itemIndex < 15000; itemIndex++) {
+        for (int itemIndex = 1; itemIndex < 1000; itemIndex++) {
             LiCaiChanPinDO liCaiChanPinDO = lianJiaLiCai.getLiCaiChanPinInfo(driver, itemIndex);
             for (int i = 0; i < liCaiChanPinDO.getGouMaiJiLu().size(); i++) {
                 GouMaiJiLuDO gouMaiJiLuDO = liCaiChanPinDO.getGouMaiJiLu().get(i);
@@ -164,7 +164,7 @@ public class LianJiaLiCai {
                     if (ddTagElement.getText().contains("��ʱ")) {
                         liCaiChanPinDO.setXiangMuShouWanLiShi(ddTagElement.getText().trim().replace("\n", ""));
                     } else if (ddTagElement.getText().contains("Ͷ��")) {
-                        liCaiChanPinDO.setTouBiaoBiShu(ddTagElement.getText().replace("Ͷ�������", "").replace("��", "").replace("\n", ""));
+                        liCaiChanPinDO.setTouBiaoBiShu(ddTagElement.getText().replace("Ͷ�������?", "").replace("��", "").replace("\n", ""));
                     }
                 }
             }

@@ -44,7 +44,12 @@ public class LianJiaLiCaiChanPinMonitor {
                             WebElement gmElement = trElement.findElement(By.className("gm"));
                             WebElement bidElement = trElement.findElement(By.className("bid"));
                             if (null != gmElement && null != bidElement) {
-                                if (!bidElement.getText().contains("已售") && bidElement.isEnabled() && gmElement.getText().length() > 7) {
+                                System.out.println(bidElement.getText());
+                                System.out.println(!bidElement.getText().contains("购买"));
+                                System.out.println(bidElement.isEnabled());
+                                System.out.println(gmElement.getText());
+                                System.out.println(gmElement.getText().length());
+                                if (bidElement.getText().contains(":")) {
                                     beep();
                                 }
                             }
